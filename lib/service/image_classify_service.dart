@@ -53,10 +53,12 @@ class ImageClassifyService extends ChangeNotifier {
       imageMean: 127.5,
       asynch: true,
     );
+    if (output.isNotEmpty) {
+      this.output = output;
 
-    this.output = output;
-    notifyListeners();
-    // _loading = false;
+      notifyListeners();
+      // _loading = false;
+    }
   }
 
   @override
