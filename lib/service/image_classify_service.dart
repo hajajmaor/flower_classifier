@@ -16,8 +16,9 @@ class ImageClassifyService extends ChangeNotifier {
 
   Future loadModel() async {
     await Tflite.loadModel(
-      model: 'assets/tflite/model_unquant.tflite',
+      model: 'assets/tflite/model.tflite',
       labels: 'assets/tflite/labels.txt',
+      numThreads: 2,
     );
   }
 
@@ -46,10 +47,11 @@ class ImageClassifyService extends ChangeNotifier {
   Future classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 2,
+      numResults: 5,
       threshold: 0.5,
       imageStd: 127.5,
       imageMean: 127.5,
+      asynch: true,
     );
 
     this.output = output;
