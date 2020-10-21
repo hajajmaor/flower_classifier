@@ -1,3 +1,7 @@
+/assets/tflite/*
+*.tflite
+
+
 # Miscellaneous
 *.class
 *.log
