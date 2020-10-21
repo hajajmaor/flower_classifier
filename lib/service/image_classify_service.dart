@@ -5,9 +5,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 
 class ImageClassifyService extends ChangeNotifier {
-  // ImageClassifyService() {
-  //   loadModel();
-  // }
+  ImageClassifyService() {
+    loadModel();
+  }
 
   File image;
   //each item in _output is a Map : keys(index,label,confidence)
@@ -18,7 +18,6 @@ class ImageClassifyService extends ChangeNotifier {
     await Tflite.loadModel(
       model: 'assets/tflite/model.tflite',
       labels: 'assets/tflite/labels.txt',
-      numThreads: 2,
     );
   }
 
@@ -51,13 +50,10 @@ class ImageClassifyService extends ChangeNotifier {
       threshold: 0.5,
       imageStd: 127.5,
       imageMean: 127.5,
-      asynch: true,
     );
     if (output.isNotEmpty) {
       this.output = output;
-
       notifyListeners();
-      // _loading = false;
     }
   }
 

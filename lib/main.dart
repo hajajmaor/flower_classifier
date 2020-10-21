@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flower_classifier/service/image_classify_service.dart';
 import 'package:flower_classifier/screens/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
