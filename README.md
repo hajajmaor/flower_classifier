@@ -25,6 +25,16 @@ This project was made in order to train in developing applications for iOS using
 
 ---
 
+Flower types:
+
+- daisy
+- dandelion
+- roses
+- sunflowers
+- tulips
+
+---
+
 ## How to use:
 
 Before starting, verify that you have and configured Python on your system:
